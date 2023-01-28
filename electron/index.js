@@ -1,5 +1,7 @@
+const url = require('node:url');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const { retrieveRoutes, retrieveVehicles, saveRoutes, saveVehicles } = require('../electron/db/index');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -14,6 +16,7 @@ const createWindow = () => {
     height: 1080,
     minWidth: 800,
     minHeight: 600,
+    icon: path.join(__dirname, '../assets/icon.png'),
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -22,7 +25,14 @@ const createWindow = () => {
     frame: false
   });
 
-  mainWindow.loadFile(path.join(__dirname, '../build/index.html'));
+  const homepage = url.format({
+    pathname: path.join(__dirname, '../build/index.html'),
+    protocol: 'file',
+    slashes: true,
+    hash: ''
+  })
+
+  mainWindow.loadURL(homepage);
   mainWindow.webContents.openDevTools();
 
   ipcMain.on('min-app', () => {
@@ -45,7 +55,6 @@ const createWindow = () => {
 
 };
 
-
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
@@ -59,3 +68,11 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+// retrieveRoutes().then((routes) => {
+//   console.log('routes:', routes)
+// }).catch(console.error);
+
+// retrieveVehicles().then((vehicles) => {
+//   console.log('vehicles:', vehicles)
+// }).catch(console.error);

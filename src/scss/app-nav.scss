@@ -1,0 +1,16 @@
+.app-nav {
+    margin-bottom: 0.75rem;
+
+    .nav-link {
+        margin-right: 0.75rem;
+        transition: all 0.25s ease-in 0s;
+
+        &:not(.active) {
+            color: $color0;
+            background-color: $color2;
+            &:hover {
+                background-color: $color3;
+            }
+        }
+    }
+}

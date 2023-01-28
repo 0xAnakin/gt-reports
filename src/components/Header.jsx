@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+import logo from '../images/logo.png';
 
 const electron = window.require('electron');
 const { ipcRenderer } = electron;
@@ -48,7 +50,13 @@ class Header extends React.Component {
     }
 
     onCloseClick = () => {
-        ipcRenderer.send('close-app');
+        
+        const result = confirm('Ειστέ σίγουρος οτι θέλετε να τερματίσετε την εφαρμογή;')
+        
+        if (result) {
+            ipcRenderer.send('close-app');
+        }
+
     }
 
     render() {
@@ -58,10 +66,8 @@ class Header extends React.Component {
         return (
             <header className="page-header">
                 <div>
-                    <button className="menubar-btn">
-                        <i className="fa fa-bars" aria-hidden="true"></i>
-                    </button>
-                    <h5 className="app-title">My Awesome App</h5>
+                    <img className="app-logo" src={logo} alt="Logo" />
+                    <h5 className="app-title">{moment().format('ddd DD, MMMM YYYY')}</h5>
                 </div>
                 <div>
                     <button className="menubar-btn" onClick={this.onMinimizeClick}>

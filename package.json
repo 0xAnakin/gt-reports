@@ -1,6 +1,6 @@
 {
-  "name": "gt-reports",
-  "productName": "gt-reports",
+  "name": "vehicle-manager",
+  "productName": "Vehicle Manager",
   "version": "1.0.0",
   "description": "Application for specidic usage",
   "main": "electron/index.js",
@@ -21,10 +21,13 @@
     "bootstrap": "^5.2.3",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.6.3",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
-    "reactstrap": "^9.1.5"
+    "reactstrap": "^9.1.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
