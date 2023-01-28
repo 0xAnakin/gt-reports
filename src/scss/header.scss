@@ -1,0 +1,44 @@
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    padding: 10px;
+    background-color: $color1;
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &:last-child {
+            >button {
+                &:first-child {
+                    >i {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .app-title {
+        margin: 0;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .menubar-btn {
+        outline-style: none;
+        box-shadow: none;
+        border: none;
+        margin: 0.75rem;
+        padding: 0;
+        background-color: transparent;
+        -webkit-app-region: no-drag;
+    }
+
+}

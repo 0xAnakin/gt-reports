@@ -1,0 +1,50 @@
+{
+  "name": "gt-reports",
+  "productName": "gt-reports",
+  "version": "1.0.0",
+  "description": "Application for specidic usage",
+  "main": "electron/index.js",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "homepage": ".",
+  "keywords": [],
+  "author": "0xAnakin",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "jquery": "^3.6.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "reactstrap": "^9.1.5"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "22.1.0",
+    "node-sass": "^7.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
