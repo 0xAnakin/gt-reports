@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { APP } from '../store/enums';
 import logo from '../images/logo.png';
 
 const electron = window.require('electron');
@@ -50,13 +52,7 @@ class Header extends React.Component {
     }
 
     onCloseClick = () => {
-        
-        const result = confirm('Ειστέ σίγουρος οτι θέλετε να τερματίσετε την εφαρμογή;')
-        
-        if (result) {
-            ipcRenderer.send('close-app');
-        }
-
+        this.props.showAppCloseModal();
     }
 
     render() {
@@ -85,5 +81,30 @@ class Header extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        app: state.appReducer
+    }
+}
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+
+        showAppCloseModal: (payload) => {
+            dispatch({
+                type: APP.SHOW_APP_CLOSE_MODAL
+            })
+        },
+
+        hideAppCloseModal: (payload) => {
+            dispatch({
+                type: APP.HIDE_APP_CLOSE_MODAL
+            })
+        }
+
+    }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
