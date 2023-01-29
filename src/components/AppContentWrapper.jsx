@@ -5,7 +5,6 @@ import Main from './Main';
 import Footer from './Footer';
 import AppCloseModal from './AppCloseModal';
 import { ROUTES, VEHICLES } from '../store/enums';
-import store from '../store';
 
 const electron = window.require('electron');
 const { ipcRenderer } = electron;

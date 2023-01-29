@@ -5,7 +5,6 @@ import moment from 'moment';
 import store from '../store';
 import AppContentWrapper from './AppContentWrapper';
 
-
 import 'moment/locale/el';
 
 moment().locale('el');
